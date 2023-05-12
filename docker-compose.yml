@@ -1,7 +1,19 @@
 version: '3'
 
 services:
-
+  authapi:
+    build:
+      context: ./Auth-API
+      dockerfile: Dockerfile
+    environment:
+      - dbPass=${dbPass}
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - AUTHPORT=${AUTHPORT}
+      - AUTH_TOKENSECRET=${AUTH_TOKENSECRET}
+      - AUTH_REFRESH_TOKEN=${AUTH_REFRESH_TOKEN}
+    container_name: AuthAPI
+    ports:
+      - 5000:5000
   db:
     image: postgres:latest
     container_name: database-postgres
@@ -32,6 +44,5 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
-  
 volumes:
   mongodb_data:
