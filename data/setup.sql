@@ -1,1 +1,1 @@
-INSERT INTO users (username, email, hashedPassword, salt, perms) VALUES ('admin', 'admin@admin.com', '8D1EF9E5C3C04BEF4FD3CDC5545725AC0F51194CCBFA3CFF5B8DB70934720625', 'testSalt', 'Admin')
+INSERT INTO users (username, email, hashedPassword, perms) VALUES ('admin', 'admin@admin.com', '8D1EF9E5C3C04BEF4FD3CDC5545725AC0F51194CCBFA3CFF5B8DB70934720625', 'Admin')
