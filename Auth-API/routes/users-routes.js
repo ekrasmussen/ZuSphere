@@ -1,11 +1,11 @@
 const express = require('express')
 const db = require('../db.js')
 const bcrypt = require('bcrypt');
-
+const tokenAuthenticator = require('../middleware/authorization.js');
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
+router.get('/', tokenAuthenticator.authenticateToken, async (req, res) => {
     try{
         const users = await db.pool.query("SELECT * FROM users");
         res.json({users : users.rows});
