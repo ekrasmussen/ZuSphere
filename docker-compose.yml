@@ -14,9 +14,11 @@ services:
     container_name: AuthAPI
     ports:
       - 5000:5000
-  db:
+    depends_on:
+      - postgres
+  postgres:
     image: postgres:latest
-    container_name: database-postgres
+    container_name: postgres
     volumes:
     - ./data/init.sql:/docker-entrypoint-initdb.d/init.sql
     - ./data/setup.sql:/docker-entrypoint-initdb.d/setup.sql

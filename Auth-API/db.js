@@ -7,7 +7,7 @@ const {Pool} = pg;
 let localPoolConfig = {
     user:'postgres',
     password: process.env.dbPass,
-    host:'localhost',
+    host:'postgres',
     port:'5432',
     database:'auth'
 };
